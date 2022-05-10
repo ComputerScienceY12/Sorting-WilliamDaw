@@ -33,7 +33,7 @@ public class Main {
             }
         }
         for (Integer number : numbers) {
-            System.out.println(number);
+            System.out.println((char) numbers.get(number));
 
         }
     }
