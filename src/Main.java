@@ -1,40 +1,36 @@
-package com.williamdaw;
-
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> numbers = new ArrayList<>();
-        ArrayList<Integer> descending = new ArrayList<>();
 
-        System.out.println("Ascending(a) or Descending (d)");
-        String option = (scanner.nextLine()).toUpperCase(Locale.ROOT);
+        System.out.println("(A)scending or (D)escending");
+        String option = (scanner.nextLine()).toUpperCase().charAt(0) + "";
         System.out.println("Enter word");
-        String[] string = scanner.nextLine().split(" ");
+        String[] string = scanner.nextLine().split("");
 
-        int num;
         for (String s : string) {
-            num = s.charAt(0);
+            int num = s.charAt(0);
             numbers.add(num);
         }
 
-        int n = numbers.size();
-        int temp;
-        for (int i = 0; i < n; i++) {
-            for (int j = 1; j < (n - i); j++) {
-                if (numbers.get((j - 1)) > numbers.get(j)) {
-                    temp = numbers.get((j - 1));
-                    numbers.set((j - 1), numbers.get(j));
-                    numbers.set(j, temp);
-                }
+        boolean sorted = false;
+        while (!(sorted)) {
+            sorted = true;
+            for (int i = 0; i < numbers.size() - 1; i++) if (numbers.get(i) > numbers.get(i + 1)) {
+                sorted = false;
+                int temporary = numbers.get(i);
+                numbers.set(i, numbers.get(i + 1));
+                numbers.set(i + 1, temporary);
             }
         }
 
+        StringBuilder sb = new StringBuilder();
+
         if (option.equals("D")) {
+            ArrayList<Integer> descending = new ArrayList<>();
             for (int i = 0; i < numbers.size(); i++) {
                 descending.add(numbers.get((numbers.size() - 1) - i));
             }
