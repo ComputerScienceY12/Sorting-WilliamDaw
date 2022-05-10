@@ -19,7 +19,7 @@ public class Main {
         option = (scanner.nextLine()).toUpperCase(Locale.ROOT);
         System.out.println("enter word");
         words = scanner.nextLine();
-        string = words.split("");
+        string = words.split(" ");
         for (int j = 0; j < string.length; j++) {
              num = string[j].charAt(0);
              numbers.add(num);
