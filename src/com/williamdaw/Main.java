@@ -6,13 +6,18 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int num;
+        String words;
+        String[] string;
         Scanner  scanner = new Scanner(System.in);
         ArrayList<Integer> numbers = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            System.out.println("enter number");
-            num = scanner.nextInt();
-            numbers.add(num);
+            System.out.println("enter letter");
+            words= scanner.nextLine();
+            string = words.split("");
+            for (int j = 0; j < string.length; j++) {
+                int num = (int) (string[j].charAt(0));
+                numbers.add(num);
+            }
         }
         int n = numbers.size();
         int temp = 0;
