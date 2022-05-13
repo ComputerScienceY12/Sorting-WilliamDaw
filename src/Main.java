@@ -9,7 +9,7 @@ public class Main {
         char option = (scanner.nextLine()).toUpperCase().charAt(0);
         System.out.println("Enter word");
         String[] string = scanner.nextLine().split("");
-
+         
         ArrayList<Integer> numbers = new ArrayList<>();
         for (String s : string) numbers.add((int) s.charAt(0));
 
